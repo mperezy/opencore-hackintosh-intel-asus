@@ -17,23 +17,25 @@
 * [Hackintool 3.5.3](https://github.com/headkaze/Hackintool/releases/latest/download/Hackintool.zip)
 
 ## Kext used in this build
-* AirportItlwm.kext
-* AppleALC.kext
-* IntelBluetoothFirmware.kext
-* IntelBluetoothInjector.kext
-* IntelMausi.kext
-* Lilu.kext
-* NightShiftUnlocker.kext
-* SMCProcessor.kext
-* SMCSuperIO.kext
-* USBInjectAll.kext
-* VirtualSMC.kext
-* VoodooHDA.kext
-* WhateverGreen.kext
+* AirportItlwm
+* AppleALC
+* IntelBluetoothFirmware
+* IntelBluetoothInjector
+* IntelMausi
+* Lilu
+* NightShiftUnlocker
+* SMCProcessor
+* SMCSuperIO
+* USBInjectAll
+* VirtualSMC
+* VoodooHDA
+* WhateverGreen
 
 ## Installation
-* Just copy all the content of `EFI/` folder in a USB with FAT32 format.
-* After install, we'll get **macOS 10.15 Catalina**
+* This repo contain the files required on `EFI/` folder to install a macOS in a PC with the [components](#pc-components) listed above, you should copy them in a USB with FAT32 format alongside `com.apple.recovery.boot/` folder.
+* In order to get the macOS image installation, please follow this Dortania's [guide](https://dortania.github.io/OpenCore-Install-Guide/installer-guide/#creating-the-usb).
+* After install, we'll get **macOS** installed, in my case I got **macOS 10.15 Catalina** and after that I got new updates in order to upgrade a new macOS version.
+
 
 ## Displaying dual monitor
 * By default, the motherboard's displayport is the main display, and probably the HDMI port will be ignored when a monitor is connected, using Hackintool we can fix this.
