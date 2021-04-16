@@ -1,5 +1,16 @@
 # Opencore Hackintosh in Intel - ASUS
 
+# Table of Contents
+* [PC Components](#pc-components)
+* [Requirements](#requirements)
+* [Kext used in this build](#kext-used-in-this-build)
+* [Installation](#installation)
+* [Displaying dual monitor](#displaying-dual-monitor)
+* [Results](#results)
+* [Adding MacOS to GRUB](#adding-macos-to-grub)
+
+---
+
 ## PC components
 * | Type | Description |
   | ---- | ----------- |
@@ -69,7 +80,31 @@
     * Display settings in Mac should look like this:
 
         <img src="./img/img7.png" width=90%>
-## Complete
+## Results
 * Now, enjoy using Mac !
 
     <img src="./img/img8.png" width=80%>
+
+## Adding MacOS to GRUB
+* In case you have a Linux distribution installed, you might want to add the MacOS boot into
+the GRUB list. In order to make it easy you can install Grub Customizer, follow this [link](https://vitux.com/how-to-install-grub-customizer-on-ubuntu/) for Ubuntu installation.
+
+* Once Grub Customizer was installed, you'll need to create a new **menuentry** and then we need to identify the UUID for the Mac's EFI partition, for that we can use Gparted to check that information as follows:
+
+    <img src="./img/img12.png" width=80%>
+
+* Now we need to use this script for that new menuentry:
+    ```
+    insmod part_gpt
+    insmod fat
+    insmod search_fs_uui
+    insmod chain
+    search --fs-uuid --set=root MAC-UUID-EFI-PARTITION-HERE
+    chainloader /EFI/BOOT/BOOTx64.efi
+    ```
+
+    The result will be like:
+
+    <img src="./img/img13.png" width=80%>
+
+    Finally save all, and restart in order to see the menuentry for MacOS.
